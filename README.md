@@ -1,53 +1,59 @@
-Automatización QA - Flujos desaucedemo.com
-📄 Descripción General del Proyecto
-Este repositorio contiene la Pre-Entrega del curso de Automatización QA, cuyo enfoque principal es la aplicación práctica de los conocimientos adquiridos. El proyecto se centra en la automatización de las interacciones esenciales en el sitio web de comercio electrónico de prueba https://www.saucedemo.com.
+# Proyecto de Talento Tech
 
-El objetivo es establecer una base sólida para el testing automatizado, cubriendo desde el acceso al sistema hasta la gestión básica del carrito de compras, utilizando las mejores prácticas con Python y Selenium.
+## Proposito del proyecto
+Este proyecto tiene como objetivo la automatizacion de pruebas de UI y de API para el sitio **SauceDemo**, aplicando practicas como Page Object Model, manejo de datos externos, generacion de reportes HTML, logging y captura automatica de pantalla.
 
-🚀 Funcionalidades Automatizadas (Casos de Prueba)
-Se han cubierto los siguientes escenarios de usuario:
+## Tecnologias utilizadas
+- Python 3.x
+- Pytest
+- Selenium WebDriver
+- Logging
+- Faker
+- CSV / JSON
+- Request
 
-Módulo	Escenario de prueba	Objetivo de la Validación
-Acceso	Acceso al Sistema	Verificar el inicio de sesión exitosa con credenciales estándar.
-Inventario	Validación de Interfaz	Comprobar el título de la página y la presencia de productos y elementos clave (filtros, menú).
-Carrito	Interacción con Productos	Agregue un producto, valide el incremento del contador del carrito y confirme su presencia en la vista del carrito.
-🛠️ Tecnologías y Herramientas
-Tecnología	Rol en el Proyecto
-Pitón	Lenguaje de programación principal para la escritura de los tests .
-Controlador web de Selenium	Herramienta para la interacción y automatización de las acciones del navegador.
-Pytest	Framework de pruebas unitarias utilizadas para la ejecución estructurada de los casos de prueba.
-Administrador de WebDriver	Gestión automática de los drivers del navegador (ej. ChromeDriver).
-Pytest-HTML	Generación de informes detallados en formato HTML.
-Git y GitHub	Sistema de control de versiones y hosting del código fuente.
-📁 Estructura del Repositorio
-La organización del proyecto se adhiere a una estructura modular para facilitar la escalabilidad y el mantenimiento:
+## Reportes y Logs
 
-preentrega-rodriguezjorge/ 
-├── test/ 
-│     ├── test_login.py         # Pruebas relacionadas con el Login. 
-│     ├── test_inventory.py     # Pruebas de Inventario y Elementos. 
-│     └── test_productos.py     # Pruebas de Carrito y Flujo de Productos.
-│ 
-├── utils.py                # Funciones Login (Inicialización de Chrome/Driver). 
-├── conftest.py             # Hooks de Pytest, fixtures. 
-├── report.html             # Reporte final generado por pytest. 
-├── README.md               # Describe las funcionalidades del programa. 
-├── run_tests.py            # Archivo main para la ejecución de los tests. 
-└── requirements.txt        # Listado de dependencias del proyecto.
-⚙️ Configuración e instalación
+El proyecto genera tres tipos principales de resultados durante la ejecucion de las prubas: **reporte HTML**, **capturas de pantalla**, **archivo de log**
 
-Clonar el Repositorio
-    git clone https://github.com/ABurgos86/Preentrega-BurgosCarlosAriel.git
+### Reporte HTML
+Se genera un reporte HTML detallado con el nombre de ```reporte.hmtl``` en la **carpeta raiz** del proyecto
 
-    cd preentrega-BurgosCarlosAriel
+### Logs de ejecución
+Tambien se genera un log con informacion detallada de toda la ejecución de las pruebas en la siguiente ubicacion: ```logs/suite.log```
 
-Instalar dependencias
+### Capturas de pantalla
 
-Asegúrese de tener Python instalado. Luego, instale las bibliotecas necesarias:
+Captura de pantalla
 
-pip install selenium
-pip install pytest
-pip install webdriver-manager
-pip install pytest-html
+## Ejuctar todas las pruebas
+Para iniciar la ejecucion de las pruebas debes ejecutar la siguiente linea:
 
-(Alternativamente, puedes usar pip install -r requisitos.txt si se genera el archivo).
+```bash
+python -m run_test.py
+```
+
+## ¿Como interpretar los reportes?
+- Al ejecutar `run_test.py`, se genera un archivo HTML en la carpeta raiz.
+- El reporte incluye:
+    - Lista completa de test ejecutados
+    - El estado de cada prueba
+    - La duracion de cada test
+    - Las capturas de pantalla para pruebas fallidas
+
+## Pruebas incluidas
+- Login exitoso y fallido
+- Login exitoso y fallido usando faker
+- Comportamiento de la pagina de inventario
+- Comportamiento de la pagina del carrito
+- API (Reqres): GET users, POST create user, DELETE user, validaciones de codigos HTTP, validaciones de estructura JSON
+
+## Manejo de datos de prueba
+- En la carpeta `datos` se incluyen archivos como:
+    - `data_login.csv` -> datos de usuarios validos o invalidos
+    - `productos.json` -> datos de productos para validacion
+
+### Conclusion
+Este proyecto ofrece una estructura organizada y escalable para automatizar pruebas de API utilizando Python y Pytest. Incluye un flujo simple de ejeucion mediante `run_test.py`, generacion automatica de reporte HTML facilitando el analisis de las pruebas.
+
+La arquitectura del proyecto esta pensada para agregar nuevos casos de prueba y configuraciones sin modificar el nucleo del proyecto, manteniendo buenas practicas y permitiendo su escalabilidad en el tiempo.
